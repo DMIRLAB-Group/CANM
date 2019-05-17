@@ -22,7 +22,7 @@ use_python("path/to/python")
 py_config() # see the configuration
 ```
 
-Due to the complexity of this developing environment, we also provide a Dockerfile (`inst/Dockerfile`) for building this environment to run this code. For your convience we have published the image to the cloud https://hub.docker.com/r/qiaojie/canm. Note that, the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) is required for using GPU. 
+Due to the complexity of this developing environment, we also provide a Dockerfile (`inst/Dockerfile`) for building this environment to run this code. For your convenience we have published the image to the cloud https://hub.docker.com/r/qiaojie/canm. Note that, the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) is required for using GPU. 
 
 Fetch the docker image:
 ```
@@ -58,7 +58,7 @@ Or just give up the GPU accelerate and run the image using: `docker run -it qiao
 
 ### Quick Start
 
-This package contains the data synthetic process for CANM that prsent in the paper. Here are some examples to make a quick start:
+This package contains the data synthetic process for CANM that present in the paper (see `CANM_data()`). Here are some examples to make a quick start:
 
 ```
 set.seed(0)
@@ -70,6 +70,32 @@ set.seed(0)
  }else{
   print("Y->X")
  }
+
+# IGCI method
+
+set.seed(0)
+x=rnorm(100)
+y=exp(x)
+f=IGCI(x,y,refMeasure=2,estimator=1)
+if(f<0){
+  print("X->Y")
+ }else{
+  print("Y->X")
+ }
+ 
+# ANM using xgboost regression
+
+set.seed(0)
+x=rnorm(1000)
+y=exp(x)+rnorm(1000)
+result=ANM_XGB(x,y)
+if(result$HSIC_xy<result$HSIC_yx){
+ print("X->Y")
+}else{
+ print("Y->X")
+}
+
+
 ```
 
 If you are not an R user, you may use the `inst/python/CANM.py` directly, however, it does not include the algorithm for searching the number of latent variables. So you have to specify the number of latent variables `N`.
