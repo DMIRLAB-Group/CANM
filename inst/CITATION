@@ -1,0 +1,15 @@
+citHeader("To cite CANM in publications use:")
+
+citEntry(entry = "inproceedings",
+  title        = "Causal Discovery with Cascade Nonlinear Additive Noise Models",
+  author       = personList(as.person("Ruichu Cai"),
+                   as.person("Jie Qiao"),
+                   as.person("Kun Zhang"),
+                   as.person("Zhenjie Zhang"),
+                   as.person("Zhifeng Hao")),
+  booktitle    = "28th International Joint Conference on Artificial Intelligence",
+  year         = "2019",
+  textVersion  = paste("Ruichu Cai, Jie Qiao, Kun Zhang, Zhenjie Zhang, Zhifeng Hao.",
+  "Causal Discovery with Cascade Nonlinear Additive Noise Models.",
+  "IJCAI 2019.")
+)

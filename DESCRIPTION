@@ -1,0 +1,28 @@
+Package: CANM
+Type: Package
+Title: Causal Discovery with Cascade Nonlinear Additive Noise Models
+Version: 0.1.0
+Authors@R: c(person("Jie","Qiao",email="qiaojie.chn@gmail.com",role=c("aut","cre")),
+            person("Ruichu","Cai",email="cairuichu@gmail.com",role=c("ths","aut")),
+            person("Kun","Zhang",email="kunz1@cmu.edu",role=c("ths","aut")),
+            person("Zhenjie","Zhang",email="zhenjie.zhang@yitu-inc.com",role=c("ths","aut")),
+            person("Zhifeng","Hao",email="zfhao@gdut.edu.cn",role=c("ths","aut"))
+        )
+Author: Jie Qiao [aut, cre],
+        Ruichu Cai [ths, aut],
+        Kun Zhang [ths, aut],
+        Zhenjie Zhang [ths, aut],
+        Zhifeng Hao [ths, aut]
+Maintainer: Jie Qiao <qiaojie.chn@gmail.com>
+Description: This code provide the CANM algorithim for causal discovery. Please cite "Ruichu Cai, Jie Qiao, Kun Zhang, Zhenjie Zhang, Zhifeng Hao. Causal Discovery with Cascade Nonlinear Additive Noise Models. IJCAI 2019." 
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr (>= 0.7.4),
+    data.table (>= 1.10.4),
+    reticulate (>= 0.1.0),
+    xgboost (>= 0.82.1),
+    kpcalg (>= 1.0.1),
+    scales (>= 1.0.0)
+RoxygenNote: 6.1.1
