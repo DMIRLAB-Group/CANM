@@ -22,12 +22,38 @@ use_python("path/to/python")
 py_config() # see the configuration
 ```
 
-Due to the complexity of this developing environment, we also provide a Dockerfile for building this program.
+Due to the complexity of this developing environment, we also provide a Dockerfile (`inst/Dockerfile`) for building this environment to run this code. For your convience we have published the image to the cloud https://hub.docker.com/r/qiaojie/canm. Note that, the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) is required for using GPU. 
+
+Fetch the docker image:
+```
+docker pull qiaojie/canm:latest
+```
+Or you may want to build it by yourself:
+```
+cd inst
+docker build . -t qiaojie/canm:latest
+```
+
+After all, you could run the demo by using:
 
 ```
-cd inst/docker
-nvidia-docker build . -t canm
+$ nvidia-docker run -it qiaojie/canm
+$ R
+> library(CANM)
+> ?CANM
+>      set.seed(0)
+>      data=CANM_data(depth=2,sample_size=5000)
+>      lxy=CANM(data[,1],data[,2])
+>      lyx=CANM(data[,2],data[,1])
+>      if(max(lxy$train_score)>max(lyx$train_score)){
++       print("X->Y")
++      }else{
++       print("Y->X")
++      }
+
 ```
+
+Or just give up the GPU accelerate and run the image using: `docker run -it qiaojie/canm`
 
 
 ### Quick Start

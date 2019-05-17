@@ -151,7 +151,7 @@ RUN R -e "install.packages(c('kpcalg'), repos = 'https://mirrors.tuna.tsinghua.e
 
 
 # install CANM
-RUN R -e "devtools::install_github('dmirgroup/CANM')"
+RUN R -e "devtools::install_github('jie-qiao/CANM')"
 
 
 
