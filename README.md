@@ -2,14 +2,14 @@
 
 ## Overview
 
-This code provides a method to fit the Cascade Nonlinear Additive Noise Models as well as to discover the causal direction on the data that contain the intermediate latent variables. 
+This code provides a method to fit the Cascade Nonlinear Additive Noise Models as well as to discover the causal direction on the data that contain the intermediate latent variables. It builds upon the pytorch and R environment, and we also publish a docker image for running this code.
 
 Please cite "Ruichu Cai, Jie Qiao, Kun Zhang, Zhenjie Zhang, Zhifeng Hao. Causal Discovery with Cascade Nonlinear Additive Noise Models. IJCAI 2019." 
 ## Installation
 
 ```
 install.packages("devtools")
-devtools::install_github("dmirgroup/CANM")
+devtools::install_github("jie-qiao/CANM")
 ```
 
 ## Requirement 
@@ -22,9 +22,9 @@ use_python("path/to/python")
 py_config() # see the configuration
 ```
 
-Due to the complexity of this developing environment, we also provide a Dockerfile (`inst/Dockerfile`) for building this environment to run this code. For your convenience we have published the image to the cloud https://hub.docker.com/r/qiaojie/canm. Note that, the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) is required for using GPU. 
+Due to the complexity of this developing environment, we also provide a Dockerfile (`inst/Dockerfile`) for building this environment to run this code. For your convenience, we have published the image to the cloud https://hub.docker.com/r/qiaojie/canm. Note that, the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) is required for using GPU. 
 
-Fetch the docker image:
+First, fetch the docker image:
 ```
 docker pull qiaojie/canm:latest
 ```
@@ -61,6 +61,7 @@ Or just give up the GPU accelerate and run the image using: `docker run -it qiao
 This package contains the data synthetic process for CANM that present in the paper (see `CANM_data()`). Here are some examples to make a quick start:
 
 ```
+library(CANM)
 set.seed(0)
  data=CANM_data(depth=2,sample_size=5000)
  lxy=CANM(data[,1],data[,2])
@@ -83,7 +84,7 @@ if(f<0){
   print("Y->X")
  }
  
-# ANM using xgboost regression
+# ANM using XGBoost regression
 
 set.seed(0)
 x=rnorm(1000)
