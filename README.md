@@ -9,7 +9,7 @@ Please cite "Ruichu Cai, Jie Qiao, Kun Zhang, Zhenjie Zhang, Zhifeng Hao. Causal
 
 ```
 install.packages("devtools")
-devtools::install_github("jie-qiao/CANM")
+devtools::install_github("DMIRLAB-Group/CANM")
 ```
 
 ## Requirement 
